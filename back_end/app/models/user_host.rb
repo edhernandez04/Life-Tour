@@ -1,0 +1,2 @@
+class UserHost < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class ListedEvent < ApplicationRecord
+end

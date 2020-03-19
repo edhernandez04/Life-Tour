@@ -1,0 +1,2 @@
+class UserAttending < ApplicationRecord
+end
