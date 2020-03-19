@@ -53,13 +53,6 @@ ActiveRecord::Schema.define(version: 2020_03_19_182520) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "user_hosts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "tour_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "age"
