@@ -27,13 +27,23 @@
   text-decoration: none;
 }
 
-.formContainer {
-  background-color: blue;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 150px;
-  margin: 10% auto;
+/* HomePage Styling */
+
+.homePage {
+  display: flex;
+  height: 90vh;
+  overflow: hidden;
+  background-image: url("./assets/people-at-concert-1105666.jpg");
+  background-size: cover;
+
+}
+
+/* Login Styling */
+
+.login {
+  display: flex;
+  height: 90vh;
+  overflow: hidden;
 }
 
 .fullscreen-video-wrap {
@@ -44,21 +54,9 @@
   width: 100%;
   height: 90vh;
   overflow: hidden;
-  z-index: -1;
 }
 
 .fullscreen-video-wrap video{
-  top: 10vh;
   min-width: 100%;
   min-height: 100%;
-}
-
-/* HomePage Styling */
-.homePage {
-  display: flex;
-  height: 90vh;
-  overflow: hidden;
-  background-image: url("./assets/people-at-concert-1105666.jpg");
-  background-size: cover;
-
 }
