@@ -5,7 +5,7 @@ class Login extends React.Component {
 
   state = {
     allUsers: [],
-    loggedIn: {}
+    loggedIn: null
   }
 
   componentDidMount(){
@@ -14,10 +14,8 @@ class Login extends React.Component {
 
   handleLogIn = (e) => {
     e.preventDefault()
-    let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name) 
-    foundUser ? this.setState({loggedIn: foundUser}) : alert("User Not Found")
-    console.log(foundUser)
-    console.log(this.state.loggedIn)
+    let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name)
+    foundUser.password === e.target[1].value ? this.setState({loggedIn: foundUser}) : alert("Incorrect User Information")
   }
 
   render() {
