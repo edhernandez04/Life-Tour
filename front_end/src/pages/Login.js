@@ -1,10 +1,34 @@
 import React from 'react';
+import User from '../components/UserProfile';
  
 class Login extends React.Component {
+
+  state = {
+    allUsers: [],
+    loggedIn: [],
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:3000/users")
+      .then(resp => resp.json())
+      .then(allUsers => this.setState({allUsers}))
+  }
+
+  handleLogIn = (e) => {
+    e.preventDefault()
+    let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name) 
+    if (foundUser) {
+        this.setState({loggedIn: foundUser})
+    } else {
+        alert("USER NOT FOUND")
+      }
+    console.log(this.state.loggedIn)
+  }
+
   render() {
     return (
     <div className="formContainer">
-                <form className="actualForm">
+                <form className="actualForm" onSubmit={this.handleLogIn}>
             <div>
                 <input type="text" name="username" placeholder="Username" />
             </div>
