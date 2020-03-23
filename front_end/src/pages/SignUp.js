@@ -3,16 +3,16 @@ import React from 'react';
 class SignUp extends React.Component {
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify({
         user: {
           name: e.target[0].value,
-          password: e.target[1].value,
-          age: e.target[2].value,
-          summary: e.target[3].value
+          age: e.target[1].value,
+          summary: e.target[2].value,
+          password: e.target[3].value
         }
       })
     })
