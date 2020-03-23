@@ -1,11 +1,11 @@
 import React from 'react';
 import User from '../components/UserProfile';
+import { Redirect } from 'react-router-dom';
  
 class Login extends React.Component {
 
   state = {
     allUsers: [],
-    loggedIn: null
   }
 
   componentDidMount(){
@@ -15,8 +15,10 @@ class Login extends React.Component {
   handleLogIn = (e) => {
     e.preventDefault()
     let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name)
-    foundUser.password === e.target[1].value ? this.setState({loggedIn: foundUser}) : alert("Incorrect User Information")
-    console.log(this.state.loggedIn)
+    if (foundUser.password === e.target[1].value){
+      this.props.currentUser = foundUser;
+      console.log(this.props.currentUser)
+    } else { alert("Incorrect User Information") }
   }
 
   render() {
@@ -33,7 +35,7 @@ class Login extends React.Component {
           <button type="submit" value="Login"> Login </button>
         </form>
       <div className="fullscreen-video-wrap">
-        <video src="https://www.videvo.net/videvo_files/converted/2013_12/preview/GLASS_BACKGROUND_CLUB.mov73294.webm" autoPlay="true" loop="true"></video>
+        <video src="https://www.videvo.net/videvo_files/converted/2013_12/preview/GLASS_BACKGROUND_CLUB.mov73294.webm" autoPlay={true} loop={true}></video>
       </div>
       </div>
     )
