@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp';
+import UserProfile from './components/UserProfile';
 
 class App extends React.Component {
 
@@ -13,21 +14,21 @@ class App extends React.Component {
   }
   
   setUser = (user) => {
-    console.log(this.props)
     this.setState({
       currentUser: user
-    })
+    }, () => this.props.history.push(`/profile`))
+    // other /users and /users/:username
   }
 
   render() {
-    console.log(this.state.currentUser)
     return (
       <div className="App">
         <Router>
           <NavBar />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/profile" component={UserProfile} />
+          <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
         </Router>
       </div>
     );

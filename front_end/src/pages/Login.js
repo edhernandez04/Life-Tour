@@ -1,21 +1,38 @@
 import React from 'react';
-import User from '../components/UserProfile';
  
 class Login extends React.Component {
 
   state = {
-    allUsers: [],
-    loggedIn: null
+    username: "",
+    password: ""
   }
 
-  componentDidMount(){
-    fetch("http://localhost:3000/users").then(resp => resp.json()).then(allUsers => this.setState({allUsers}))
+  // componentDidMount(){
+  //   fetch("http://localhost:3000/users").then(resp => resp.json()).then(allUsers => this.setState({allUsers}))
+  // }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
 
   handleLogIn = (e) => {
     e.preventDefault()
-    let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name)
-    foundUser.password === e.target[1].value ? this.setState({loggedIn: foundUser}) : alert("Incorrect User Information")
+    // let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name)
+    // foundUser.password === e.target[1].value ? this.setState({loggedIn: foundUser}) : alert("Incorrect User Information")
+    fetch('http://localhost:3000/login', {
+      method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(this.state)
+    })
+    .then(resp => resp.json())
+    .then(response => {
+      console.log(response)
+    })
   }
 
   render() {
@@ -24,10 +41,10 @@ class Login extends React.Component {
         <form className="actualForm" onSubmit={this.handleLogIn}>
           <h1> Login </h1>
           <div class="txtbox">
-            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="username" placeholder="Username" onChange={this.handleChange}/>
           </div>
           <div class="txtbox">
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
           </div>
           <button type="submit" value="Login"> Login </button>
         </form>

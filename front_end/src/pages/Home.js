@@ -1,5 +1,4 @@
 import React from 'react'
-import User from '../components/UserProfile'
 
 class Home extends React.Component{
 
