@@ -16,6 +16,7 @@ class Login extends React.Component {
     e.preventDefault()
     let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name)
     foundUser.password === e.target[1].value ? this.setState({loggedIn: foundUser}) : alert("Incorrect User Information")
+    console.log(this.state.loggedIn)
   }
 
   render() {

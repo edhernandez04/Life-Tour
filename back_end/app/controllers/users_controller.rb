@@ -1,23 +1,28 @@
 class UsersController < ApplicationController
+
+  skip_before_action :verify_authenticity_token
+
   def index
     users = User.all
-
     render json: users
   end
 
   def create
-    @user = User.create(user_params)
-    if @user.valid?
-      render json: { user: User.create!(@user) }, status: :created
+    user = User.new(
+      username: params[:username],
+      password: params[:password],
+    )
+    if user.save
+      render json: user
     else
-      render json: { error: 'failed to create user' }, status: :not_acceptable
+      render json: {errors: user.errors.full_messages}
     end
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :password, :age, :summary)
+  def show
+    user = User.all.find do |user|
+      user.id === params[:id]
+    end
   end
 
 end
