@@ -32,7 +32,7 @@ class Login extends React.Component {
           <button type="submit" value="Login"> Login </button>
         </form>
       <div className="fullscreen-video-wrap">
-        <video src="https://www.videvo.net/videvo_files/converted/2013_12/preview/GLASS_BACKGROUND_CLUB.mov73294.webm" autoPlay="true" loop="true"></video>
+        <video src="https://www.videvo.net/videvo_files/converted/2013_12/preview/GLASS_BACKGROUND_CLUB.mov73294.webm" autoPlay={true} loop={true}></video>
       </div>
       </div>
     )
