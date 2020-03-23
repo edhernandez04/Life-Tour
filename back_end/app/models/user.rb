@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_secure_password
+    validates :username, uniqueness: { case_sensitive: false }
     has_many :tours, through: :user_attending
     has_many :tours
     has_many :followers, foreign_key: :follower_id , class_name: "Friendship"
