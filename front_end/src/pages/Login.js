@@ -22,10 +22,11 @@ class Login extends React.Component {
     return (
       <div className="formContainer">
         <form className="actualForm" onSubmit={this.handleLogIn}>
-          <div>
+          <h1> Login </h1>
+          <div class="txtbox">
             <input type="text" name="username" placeholder="Username" />
           </div>
-          <div>
+          <div class="txtbox">
             <input type="password" name="password" placeholder="Password" />
           </div>
           <button type="submit" value="Login"> Login </button>

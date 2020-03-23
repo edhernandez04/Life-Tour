@@ -22,20 +22,20 @@ class SignUp extends React.Component {
     return (
         <div className="formContainer">
           <form className="actualForm" onSubmit={this.handleSubmit}>
-            <h3>Get Access</h3>
-            <div>
+            <h1>Get Access</h1>
+            <div class="txtbox">
             <input type="text" name="username" placeholder="Username" />
             </div>
-            <div>
-            <input type="integer" name="age" placeholder="age" />
+            <div class="txtbox">
+            <input type="integer" name="age" placeholder="Age" />
             </div>
-            <div>
+            {/* <div class="txtbox">
             <input type="text" name="summary" placeholder="Summary" />
-            </div>
-            <div>
+            </div> */}
+            <div class="txtbox">
             <input type="password" name="password" placeholder="Password" />
             </div>
-            <input type="submit" value="SignUp" />
+            <button type="submit" value="Login"> Sign Up </button>
           </form>
         <div className="fullscreen-video-wrap">
           <video src="https://www.videvo.net/videvo_files/converted/2013_12/preview/GIRL_ON_SHOULDERS.mov69900.webm" autoPlay="true" loop="true"></video>
