@@ -116,8 +116,8 @@
 }
 
 .card-userAvatar{
-  position: relative;
-  margin-top: 50px;
+  position: absolute;
+  margin-top: 25px;
   margin-left: 50px;
   max-width: 200px;
   background-color: cadetblue;
@@ -129,23 +129,44 @@
 }
 
 .card-userInfo {
-  position: relative;
-  padding: 10px;
+  position: absolute;
+  width: 200px;
+  padding: 11px;
+  margin-top: 230px;
   margin-left: 50px;
   margin-right: 0px;
-  max-width: 200px;
   background-color: cadetblue;
 }
 
 .container-userEvents {
   position: absolute;
+  margin-top: 25px;
+  margin-left: 300px;
+  padding: 10px;
   margin-right: 50px;
-
 }
 
 .container-userEvents img{
   max-height: 275px;
   max-width: 250px;
   vertical-align: middle;
+  padding: 1px;
 }
 
+.container-otherEvents {
+  position: absolute;
+  margin-left: 300px;
+  padding: 10px;
+  margin-right: 50px;
+  margin-top: 200px;
+}
+
+.container-otherEvents img {
+  width: 250px;
+  height: 250px;
+  padding: 3px;
+}
+
+.page {
+  background: url();
+}
