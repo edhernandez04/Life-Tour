@@ -11,7 +11,14 @@ import UserProfile from './components/UserProfile';
 class App extends React.Component {
 
   state = {
-    currentUser: null
+    currentUser: {
+      id: 3,
+      name: null,
+      age: null,
+      username: "pardihardi",
+      password_digest: "$2a$12$04zvOXFK1K2Wrl9Y4GvwSOwI/v8xNKLkWVJlJquY4nlRf/NvgTCwm",
+      summary: "Too sexy for my shirt",
+    }
   }
   
   setUser = (user) => {
@@ -25,7 +32,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <NavBar />
-          <Route exact path="/profile" component={UserProfile} />
+          <Route exact path="/profile" render={() => <UserProfile user={this.state.currentUser}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
           <Route exact path="/" component={Home} />

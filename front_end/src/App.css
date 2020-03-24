@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 * {
-  margin: 0px;
-  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -117,6 +115,37 @@
   background-position: right;  
 }
 
+.card-userAvatar{
+  position: relative;
+  margin-top: 50px;
+  margin-left: 50px;
+  max-width: 200px;
+  background-color: cadetblue;
+}
 
+.card-userAvatar img {
+  height: 200px; 
+  width: 200px
+}
 
+.card-userInfo {
+  position: relative;
+  padding: 10px;
+  margin-left: 50px;
+  margin-right: 0px;
+  max-width: 200px;
+  background-color: cadetblue;
+}
+
+.container-userEvents {
+  position: absolute;
+  margin-right: 50px;
+
+}
+
+.container-userEvents img{
+  max-height: 275px;
+  max-width: 250px;
+  vertical-align: middle;
+}
 
