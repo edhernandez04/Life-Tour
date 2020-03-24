@@ -71,7 +71,6 @@
   text-align: center;
   display: block;
   padding: 35px;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-family: montserrat;
 }
 
@@ -125,7 +124,7 @@
 
 .card-userAvatar img {
   height: 200px; 
-  width: 200px
+  width: 200px;
 }
 
 .card-userInfo {
@@ -167,6 +166,55 @@
   padding: 3px;
 }
 
-.page {
-  background: url();
+.event-banner {
+  position: absolute;
+  width: 100%;
+  height: 175px;
+  background-color: #f1f1f1;;
+}
+
+.event-banner img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 175px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 50px;
+}
+
+.event-details {
+  padding: 10px;
+  position: absolute;
+  margin-top: 185px;
+  margin-left: 50px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.attendee-container {
+  position: absolute;
+  padding: 15px;
+  margin-top: 185px;
+  margin-left: 400px;
+  margin-right: 50px;
+  background-color: #f1f1f1;
+  align-items: center;
+}
+
+.attendee-container img {
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+}
+
+.comments-container {
+  position: absolute;
+  margin-top: 550px;
+  margin-left: 400px;
+  margin-right: 50px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
 }

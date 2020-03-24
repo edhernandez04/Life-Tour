@@ -45,7 +45,7 @@ export default class UserProfile extends React.Component{
                     </div>
                 </div>
                 <div className="fullscreen-video-wrap">
-                    <video src="https://www.videvo.net/videvo_files/converted/2014_05/preview/Flashing_Club_Scene.mov87931.webm" autoPlay={true} loop={true}></video>
+                    <video src="https://cdn.videvo.net/videvo_files/video/free/2019-07/small_watermarked/190625_04_CityMisc_HD_05_preview.webm" autoPlay={true} loop={true}></video>
                 </div>
             </div>
         )

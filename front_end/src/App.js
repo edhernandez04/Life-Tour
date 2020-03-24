@@ -7,6 +7,7 @@ import Profile from './components/UserProfile'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
+import Event from './components/Events'
 
 class App extends React.Component {
 
@@ -32,6 +33,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <NavBar />
+          <Route exact path="/event" render={() => <Event />}/>
           <Route exact path="/profile" render={() => <UserProfile user={this.state.currentUser}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
