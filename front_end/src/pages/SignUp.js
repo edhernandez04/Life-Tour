@@ -2,7 +2,7 @@ import React from 'react';
  
 class SignUp extends React.Component {
 
-  state ={ 
+  state = { 
     username: "",
     password: "",
     age: null,
@@ -17,7 +17,6 @@ class SignUp extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-
     if (this.state.password === this.state.passwordConfirmation){
       fetch('http://localhost:3000/signup', {
         method: 'POST',
@@ -43,7 +42,6 @@ class SignUp extends React.Component {
     } else {
       alert("Passwords don't match")
     }
-
   }
 
   render() {
@@ -57,9 +55,6 @@ class SignUp extends React.Component {
             <div className="txtbox">
             <input onChange={this.handleChange} type="integer" name="age" placeholder="Age" />
             </div>
-            {/* <div className="txtbox">
-            <input type="text" name="summary" placeholder="Summary" />
-            </div> */}
             <div className="txtbox">
             <input onChange={this.handleChange} type="password" name="password" placeholder="Password" />
             </div>

@@ -17,7 +17,7 @@ class NavBar extends React.Component {
                 {this.props.currentUser ? 
                 <span className="user">
                     Welcome! {this.props.currentUser.username}
-                    {/* <button onClick={this.props.logout}> Log Out </button> */}
+                    <button onClick={this.props.logout}> Log Out </button>
                 </span>
                 : 
                 <span className="login-signup">

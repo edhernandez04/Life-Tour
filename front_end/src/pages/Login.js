@@ -7,10 +7,6 @@ class Login extends React.Component {
     password: ""
   }
 
-  // componentDidMount(){
-  //   fetch("http://localhost:3000/users").then(resp => resp.json()).then(allUsers => this.setState({allUsers}))
-  // }
-
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -19,8 +15,6 @@ class Login extends React.Component {
 
   handleLogIn = (e) => {
     e.preventDefault()
-    // let foundUser = this.state.allUsers.find(user => e.target[0].value === user.name)
-    // foundUser.password === e.target[1].value ? this.setState({loggedIn: foundUser}) : alert("Incorrect User Information")
     fetch('http://localhost:3000/login', {
       method: 'POST',
         headers: { 
