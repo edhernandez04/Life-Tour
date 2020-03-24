@@ -1,11 +1,12 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 // import Event from './Event'
 
 export default class UserProfile extends React.Component{
 
     render(){
         console.log(this.props.currentUser)
-        return (
+        return !this.props.currentUser ? <Redirect to="/login" /> : (
             <div className="page">
                 <div className="row">
                     <div className="card-userAvatar">
