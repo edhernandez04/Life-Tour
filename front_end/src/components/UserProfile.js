@@ -18,6 +18,7 @@ export default class UserProfile extends React.Component{
                         <img src='https://d2z11snniwyi52.cloudfront.net/images/template/2770/16/Lions-Club-International-Water-Color-Event-Ticket__front.png'/>
                         <img src="https://3.bp.blogspot.com/-c9UVJi0o2xo/UDZYX3J2qVI/AAAAAAAAA_g/cl7ZNwS5Pn8/s1600/bieber+ticket+front+side.jpg"/>
                     </div>
+                    {/* ADD SEARCH BAR */}
                 </div>
                 <div className="row">
                     <div className="container-otherEvents">

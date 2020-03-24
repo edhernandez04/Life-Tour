@@ -34,6 +34,7 @@ export default class Events extends React.Component {
                     <p>+48 other attendees</p>
                 </div>
                 <div className="comments-container">
+                    {/* ADD COMMENT FORM TOP OF COMMENTS */}
                     <p>User: Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either.</p>
                     <p>User: Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either.</p>
                     <p>User: Someone I know recently combined Maple Syrup & buttered Popcorn thinking it would taste like caramel popcorn. It didn’t and they don’t recommend anyone else do it either.</p>
