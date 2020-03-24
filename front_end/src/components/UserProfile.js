@@ -1,11 +1,12 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 // import Event from './Event'
 
 export default class UserProfile extends React.Component{
 
     render(){
-        console.log(this.props.user)
-        return (
+        console.log(this.props.currentUser)
+        return !this.props.currentUser ? <Redirect to="/login" /> : (
             <div className="page">
                 <div className="row">
                     <div className="card-userAvatar">
@@ -36,10 +37,10 @@ export default class UserProfile extends React.Component{
                         <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2019%2F07%2Fbest-bubble-tea-nyc-01.jpg?q=75&w=800&cbr=1&fit=max" />
                     </div>
                     <div className="card-userInfo">
-                        <h3>{this.props.user.username}</h3>
-                        <p>{this.props.user.name ? this.props.user.name:"Didnt leave a name"}</p>
-                        <p>{this.props.user.age ? this.props.user.age:"How old are you?"}</p>
-                        <p>{this.props.user.summary ? this.props.user.summary:"You need to update your profile"}</p>
+                        <h3>{this.props.currentUser.username}</h3>
+                        <p>{this.props.currentUser.name ? this.props.currentUser.name:"Didnt leave a name"}</p>
+                        <p>{this.props.currentUser.age ? this.props.currentUser.age:"How old are you?"}</p>
+                        <p>{this.props.currentUser.summary ? this.props.currentUser.summary:"You need to update your profile"}</p>
                         <p>Featured Friend</p>
                         <p>dates for next tours</p>
                         <p>most commented tours</p>

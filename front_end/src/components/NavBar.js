@@ -14,8 +14,17 @@ class NavBar extends React.Component {
 
                 <div className="navlinks">
                 <NavLink to="/">Home</NavLink>
+                {this.props.currentUser ? 
+                <span className="user">
+                    Welcome! {this.props.currentUser.username}
+                    <button onClick={this.props.logout}> Log Out </button>
+                </span>
+                : 
+                <span className="login-signup">
                 <NavLink to="/login">Login</NavLink>
                 <NavLink to="/signup">Signup</NavLink>
+                </span>
+                }
                 </div>
                 
             </div>
