@@ -13,19 +13,53 @@ class App extends React.Component {
     currentUser: null
   }
   
-  setUser = (user) => {
+  componentDidMount(){
+    const token = localStorage.token
+
+    if(token){
+      fetch("http://localhost:3000/auto_login", {
+        headers: {
+          "Authorization": token
+        }
+      })
+      .then(resp => resp.json())
+      .then(response => {
+        if (response.errors){
+          alert(response.errors)
+        } else {
+          this.setState({
+            currentUser: response
+          })
+        }
+      })
+    }
+  }
+
+  setUser = response => {
     this.setState({
-      currentUser: user
-    }, () => this.props.history.push(`/profile`))
+      currentUser: response.user
+    }, () => {
+      localStorage.token = response.token
+      this.props.history.push(`/profile`)
+    })
     // other /users and /users/:username
+  }
+
+  logout = () => {
+    this.setState({
+      currentUser: null
+    }, () => {
+      localStorage.removeItem("token")
+      this.props.history.push("/login")
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Router>
-          <NavBar />
-          <Route exact path="/profile" component={UserProfile} />
+          <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
+          <Route exact path="/profile" render={() => <UserProfile currentUser={this.currentUser}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
           <Route exact path="/" component={Home} />

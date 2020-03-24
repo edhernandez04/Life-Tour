@@ -31,7 +31,7 @@ class Login extends React.Component {
     })
     .then(resp => resp.json())
     .then(response => {
-      console.log(response)
+      this.props.setUser(response)
     })
   }
 
@@ -40,10 +40,10 @@ class Login extends React.Component {
       <div className="formContainer">
         <form className="actualForm" onSubmit={this.handleLogIn}>
           <h1> Login </h1>
-          <div class="txtbox">
+          <div className="txtbox">
             <input type="text" name="username" placeholder="Username" onChange={this.handleChange}/>
           </div>
-          <div class="txtbox">
+          <div className="txtbox">
             <input type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
           </div>
           <button type="submit" value="Login"> Login </button>
