@@ -6,8 +6,6 @@ class AdapterController < ActionController::API
 
         results = Adapter.search_events(params[:keyword], params[:city])
 
-        byebug
-
         render json: results
     end
 

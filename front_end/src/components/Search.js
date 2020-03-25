@@ -24,7 +24,10 @@ class Search extends React.Component {
             body: JSON.stringify(this.state)
         })
         .then(resp => resp.json())
-        .then(console.log)
+        .then(events => {
+            this.props.searchHandler(events)
+            // console.log(events)
+        })
     }
     
     render() {
