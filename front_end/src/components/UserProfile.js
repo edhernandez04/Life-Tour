@@ -4,8 +4,28 @@ import { Redirect } from 'react-router-dom'
 
 export default class UserProfile extends React.Component{
 
+    state = {
+        allEvents: [],
+        copyEvents: []
+    }
+
+    searchChange = (e) => {
+        this.setState({ search: e.target.value },
+          () => { this.setState({
+            allEvents: this.state.copyEvents.filter(event => event.title.includes(this.state.search))
+          }) }
+        )
+      }
+
+    editProfile = () => {
+        window.open('/editprofile')
+    }
+
+    startTour = () => {
+        window.open('/starttour')
+    }
+
     render(){
-        console.log(this.props.currentUser)
         return !this.props.currentUser ? <Redirect to="/login" /> : (
             <div className="page">
                 <div className="row">
@@ -19,7 +39,9 @@ export default class UserProfile extends React.Component{
                         <img src='https://d2z11snniwyi52.cloudfront.net/images/template/2770/16/Lions-Club-International-Water-Color-Event-Ticket__front.png'/>
                         <img src="https://3.bp.blogspot.com/-c9UVJi0o2xo/UDZYX3J2qVI/AAAAAAAAA_g/cl7ZNwS5Pn8/s1600/bieber+ticket+front+side.jpg"/>
                     </div>
-                    {/* ADD SEARCH BAR */}
+                    <div className="search">
+                        <input type="text" placeholder={"Search Events"} onChange={this.searchChange}/>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="container-otherEvents">
@@ -37,17 +59,15 @@ export default class UserProfile extends React.Component{
                         <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2019%2F07%2Fbest-bubble-tea-nyc-01.jpg?q=75&w=800&cbr=1&fit=max" />
                     </div>
                     <div className="card-userInfo">
-                        <h3>{this.props.currentUser.username}</h3>
+                        <h2>{this.props.currentUser.username}</h2>
                         <p>{this.props.currentUser.name ? this.props.currentUser.name:"Didnt leave a name"}</p>
                         <p>{this.props.currentUser.age ? this.props.currentUser.age:"How old are you?"}</p>
                         <p>{this.props.currentUser.summary ? this.props.currentUser.summary:"You need to update your profile"}</p>
                         <p>Featured Friend</p>
                         <p>dates for next tours</p>
                         <p>most commented tours</p>
+                        <button onClick={this.editProfile}>Edit Profile</button><button onClick={this.startTour}>Start Tour</button>
                     </div>
-                </div>
-                <div className="fullscreen-video-wrap">
-                    <video src="https://cdn.videvo.net/videvo_files/video/free/2019-07/small_watermarked/190625_04_CityMisc_HD_05_preview.webm" autoPlay={true} loop={true}></video>
                 </div>
             </div>
         )

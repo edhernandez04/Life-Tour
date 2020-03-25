@@ -8,9 +8,10 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
 import Event from './components/Events'
+import EditProfile from './components/EditProfile'
 
 class App extends React.Component {
-
+  
   state = {
     currentUser: null
   }
@@ -62,9 +63,11 @@ class App extends React.Component {
       <div className="App">
         
           <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
+          <Route exact path="/event" render={() => <Event />}/>
           <Route exact path="/profile" render={() => <UserProfile currentUser={this.state.currentUser}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
+          <Route exact path="/editProfile" render={() => <EditProfile />}/>
           <Route exact path="/" component={Home} />
         
       </div>
