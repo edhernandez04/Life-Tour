@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
 import Event from './components/Events';
 import EditProfile from './components/EditProfile';
+import Tour from './components/Tour'
 
 class App extends React.Component {
 
@@ -68,6 +69,7 @@ class App extends React.Component {
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
           <Route exact path="/editprofile" render={() => <EditProfile currentUser={this.state.currentUser}/>}/>
+          <Route exact path="/tour" render={() => <Tour currentUser={this.state.currentUser}/>}/>
           <Route exact path="/" component={Home} />
         
       </div>
