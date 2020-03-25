@@ -279,6 +279,8 @@
     display: block;
   }
 
+  /* TOUR PAGE */
+
   .tour-avatar {
     position: absolute;
     margin-top: 10px;
@@ -307,22 +309,28 @@
     margin-left: 50px;
     background-color: rgb(180, 204, 248);
     border-radius: 15px;
+    text-align:center;
   }
 
-  .tour-container {
+  .wrapper {
     position: absolute;
     width: 950px;
-    height: 700px;
+    min-height: 750px;
     margin-top: 10px;
     margin-left: 400px;
     margin-right: 50px;
     background-color: rgb(180, 204, 248);
     border-radius: 15px;
     padding: 10px;
+    display: grid;
+    grid-template-columns: 290px 290px 290px;
+    grid-auto-rows: minmax(300px, auto);
+    row-gap: 10px;
+    column-gap: 25px;
   }
 
   .tour-event-card {
-    width: 270px;
+    width: 295px;
     border-radius: 15px;
     background-color:rgb(253, 255, 128);
     padding: 5px;
