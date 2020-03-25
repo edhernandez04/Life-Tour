@@ -52,7 +52,7 @@ class EditProfile extends React.Component{
                     <button type="submit" value="Login"> Update </button>
                 </form>
             <div className="fullscreen-video-wrap">
-                <video src="https://www.videvo.net/videvo_files/converted/2014_06/preview/Club_Lights_Red_Blue.mov24678.webm" autoPlay={true} loop={true}></video>
+                <video src="https://www.videvo.net/videvo_files/converted/2018_03/preview/180301_03_B_CausewayBay_02.mp422652.webm" autoPlay={true} loop={true}></video>
             </div>
             </div>
         )
