@@ -66,7 +66,7 @@ export default class UserProfile extends React.Component{
                         <p>Featured Friend</p>
                         <p>dates for next tours</p>
                         <p>most commented tours</p>
-                        <button onClick={this.editProfile}>Edit Profile</button><button onClick={this.startTour}>Start Tour</button>
+                        <button onClick={this.editProfile}>Edit Profile</button><button onClick={this.createEvent}>Create Event</button><button onClick={this.startTour}>Start Tour</button>
                     </div>
                 </div>
             </div>
