@@ -25,7 +25,11 @@ class Login extends React.Component {
     })
     .then(resp => resp.json())
     .then(response => {
-      this.props.setUser(response)
+      if (response.errors){
+        alert(response.errors)
+      } else {
+        this.props.setUser(response)
+      }
     })
   }
 

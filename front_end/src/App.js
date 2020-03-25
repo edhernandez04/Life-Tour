@@ -26,7 +26,7 @@ class App extends React.Component {
           "Authorization": token
         }
       })
-      .then(resp => resp.json())
+      .then(res => res.json())
       .then(response => {
         if (response.errors){
           alert(response.errors)
@@ -53,13 +53,14 @@ class App extends React.Component {
     this.setState({
       currentUser: null
     }, () => {
-      console.log(this.state.currentUser)
       localStorage.removeItem("token")
-      this.props.history.push("/login")
     })
   }
 
   render() {
+    console.log(localStorage.token)
+    console.log(this.state.currentUser)
+
     return (
       <div className="App">
         
