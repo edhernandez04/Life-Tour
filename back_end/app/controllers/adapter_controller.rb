@@ -2,8 +2,8 @@ class ApplicationController < ActionController::API
 
     def ticketmaster
         # Search parameters defined here
-
-        results = Adapter.searchEvents()
+        byebug
+        results = Adapter.search_events()
 
         render json: results
     end
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     def ticketmaster_event
         id = params[:id]
 
-        result = Adapter.searchEvent(id)
+        result = Adapter.search_event(id)
 
         render json: result
     end

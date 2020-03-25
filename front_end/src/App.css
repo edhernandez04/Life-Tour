@@ -114,63 +114,92 @@
   background-position: right;  
 }
 
+/* PROFILE PAGE  */
 .card-userAvatar{
   position: absolute;
   margin-top: 25px;
   margin-left: 50px;
-  max-width: 200px;
-  background-color: cadetblue;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  align-content: center;
 }
 
 .card-userAvatar img {
-  height: 200px; 
-  width: 200px;
+  height: 150px; 
+  width: 150px;
+  border-radius: 100px;
+  margin-top: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .card-userInfo {
   position: absolute;
   width: 200px;
   padding: 11px;
-  margin-top: 230px;
+  margin-top: 240px;
   margin-left: 50px;
   margin-right: 0px;
-  background-color: cadetblue;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  text-align: center;
 }
 
 .container-userEvents {
   position: absolute;
+  width: 1060px;
   margin-top: 25px;
   margin-left: 300px;
   padding: 10px;
   margin-right: 50px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
 }
 
 .container-userEvents img{
-  max-height: 275px;
-  max-width: 250px;
-  vertical-align: middle;
+  height: 115px;
+  width: 260px;
   padding: 1px;
+  border-radius: 8px;
 }
 
 .container-otherEvents {
   position: absolute;
+  width: 1060px;
   margin-left: 300px;
-  padding: 10px;
+  padding: 25px;
   margin-right: 50px;
-  margin-top: 200px;
+  margin-top: 215px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
 }
 
 .container-otherEvents img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 150px;
   padding: 3px;
+  border-radius: 8px;
 }
 
+.search {
+  position: absolute;
+  margin-top: 180px;
+  margin-left: 310px;
+}
+
+/* EVENT SHOW PAGE */
 .event-banner {
   position: absolute;
-  width: 100%;
+  margin-left: 400px;
+  margin-right: 50px;
+  margin-top: 10px;
+  width: 950px;
+  border-radius: 15px;
   height: 175px;
-  background-color: #f1f1f1;;
+  background-color: rgb(180, 204, 248);;
 }
 
 .event-banner img {
@@ -180,41 +209,72 @@
   width: 40%;
   height: 175px;
   padding: 10px;
-  background-color: #f1f1f1;
+  background-color: rgb(180, 204, 248);
   border-radius: 50px;
 }
 
 .event-details {
   padding: 10px;
   position: absolute;
-  margin-top: 185px;
+  width: 300px;
+  margin-top: 325px;
   margin-left: 50px;
-  background-color: #f1f1f1;
-  border-radius: 5px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
 }
 
 .attendee-container {
   position: absolute;
+  width: 950px;
   padding: 15px;
-  margin-top: 185px;
+  margin-top: 195px;
   margin-left: 400px;
   margin-right: 50px;
-  background-color: #f1f1f1;
+  background-color: rgb(180, 204, 248);
   align-items: center;
+  border-radius: 15px;
 }
 
 .attendee-container img {
   height: 150px;
   width: 150px;
   padding: 5px;
+  border-radius: 100px;
+}
+
+.comment-form{
+  position: absolute;
+  margin-top: 595px;
+  margin-left: 400px;
 }
 
 .comments-container {
   position: absolute;
-  margin-top: 550px;
+  width: 950px;
+  margin-top: 635px;
   margin-left: 400px;
   margin-right: 50px;
-  background-color: #f1f1f1;
-  border-radius: 5px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
   padding: 10px;
 }
+
+.event-host-avatar {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(180, 204, 248);
+    border-radius: 15px;
+    text-align:center;
+  }
+  
+  .event-host-avatar img {
+    height: 150px; 
+    width: 150px;
+    border-radius: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }

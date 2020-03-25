@@ -7,7 +7,8 @@ import Profile from './components/UserProfile'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
-import Event from './components/Events'
+import Event from './components/Events';
+import EditProfile from './components/EditProfile';
 
 class App extends React.Component {
 
@@ -52,7 +53,6 @@ class App extends React.Component {
       currentUser: null
     }, () => {
       localStorage.removeItem("token")
-      this.props.history.push("/login")
     })
   }
 
@@ -61,9 +61,11 @@ class App extends React.Component {
       <div className="App">
         
           <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
+          <Route exact path="/event" render={() => <Event />}/>
           <Route exact path="/profile" render={() => <UserProfile currentUser={this.state.currentUser}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
+          <Route exact path="/editprofile" render={() => <EditProfile currentUser={this.state.currentUser}/>}/>
           <Route exact path="/" component={Home} />
         
       </div>
