@@ -10,13 +10,11 @@ export default class UserProfile extends React.Component{
         copyEvents: []
     }
 
-    searchChange = (e) => {
-        this.setState({ search: e.target.value },
-          () => { this.setState({
-            allEvents: this.state.copyEvents.filter(event => event.title.includes(this.state.search))
-          }) }
-        )
-      }
+    searchHandler = events => {
+        this.setState({
+            allEvents: events
+        })
+    }
 
     editProfile = () => {
         window.open('/editprofile')
@@ -42,7 +40,7 @@ export default class UserProfile extends React.Component{
                         <img src="https://3.bp.blogspot.com/-c9UVJi0o2xo/UDZYX3J2qVI/AAAAAAAAA_g/cl7ZNwS5Pn8/s1600/bieber+ticket+front+side.jpg"/>
                     </div>
                     <div className="search">
-                        <Search />
+                        <Search searchHandler={this.searchHandler}/>
                     </div>
                 </div>
                 <div className="row">

@@ -7,9 +7,15 @@ class Search extends React.Component {
         city: ""
     }
 
+    changeHandler = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     submitHandler = (event) => {
         event.preventDefault()
-        fetch("localhost:3000/search_events", {
+        fetch("http://localhost:3000/search_events", {
             method: "POST",
             headers: {
                 "Content-Type": 'application/json',
@@ -17,14 +23,16 @@ class Search extends React.Component {
             },
             body: JSON.stringify(this.state)
         })
+        .then(resp => resp.json())
+        .then(console.log)
     }
     
     render() {
         return (
             <div className="searchForm" onSubmit={this.submitHandler}>
                 <form className="eventSearch">
-                <input type="text" name="keyword" placeholder="Find an event ..."/>
-                <input type="text" name="city" placeholder="What city?"/>
+                <input type="text" name="keyword" placeholder="Find an event ..." value={this.state.keyword} onChange={this.changeHandler}/>
+                <input type="text" name="city" placeholder="What city?" value={this.state.city} onChange={this.changeHandler}/>
                 <button type="submit"> Search </button>
                 </form>
             </div>
