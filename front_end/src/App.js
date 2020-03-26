@@ -7,9 +7,9 @@ import Profile from './components/UserProfile'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
-import Event from './components/Events';
+import Event from './components/EventPage';
 import EditProfile from './components/EditProfile';
-import Tour from './components/Tour'
+import Tour from './components/TourPage'
 
 class App extends React.Component {
 
@@ -30,12 +30,15 @@ class App extends React.Component {
       .then(response => {
         if (response.errors){
           alert(response.errors)
+          this.props.history.push(`/login`)
         } else {
           this.setState({
             currentUser: response
           })
         }
       })
+    } else {
+      this.props.history.push(`/login`)
     }
   }
 
@@ -54,6 +57,7 @@ class App extends React.Component {
       currentUser: null
     }, () => {
       localStorage.removeItem("token")
+      this.props.history.push(`/login`)
     })
   }
 

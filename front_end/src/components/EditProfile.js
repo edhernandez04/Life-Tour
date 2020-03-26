@@ -6,7 +6,7 @@ class EditProfile extends React.Component{
         name: "",
         age: null,
         summary: "",
-        img: ""
+        profile_pic: ""
       }
     
       handleChange = (event) => {
@@ -17,19 +17,19 @@ class EditProfile extends React.Component{
 
       handleSubmit = (e) => {
         e.preventDefault()
-        fetch(`http://localhost:3000/${this.props.currentUser.id}`, {
+        fetch(`http://localhost:3000/users/${this.props.currentUser.id}`, {
             method: 'PATCH',
             headers: { 
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
               },
             body: JSON.stringify({
                 name: this.state.name,
                 age: this.state.age,
                 summary: this.state.summary,
-                img: this.state.img
+                profile_pic: this.state.profile_pic
             })
-        }).then(console.log(this.props.currentUser))
+        }).then(this.props.history.push(`/login`))
       }
 
     render(){
@@ -47,7 +47,7 @@ class EditProfile extends React.Component{
                         <input onChange={this.handleChange} type="text" name="summary" placeholder="Summary" />
                     </div>
                     <div className="txtbox">
-                        <input onChange={this.handleChange} type="text" name="img" placeholder="Profile img URL" />
+                        <input onChange={this.handleChange} type="text" name="profile_pic" placeholder="Profile img URL" />
                     </div>
                     <button type="submit" value="Login"> Update </button>
                 </form>

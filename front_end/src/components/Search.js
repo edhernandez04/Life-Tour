@@ -25,8 +25,7 @@ class Search extends React.Component {
         })
         .then(resp => resp.json())
         .then(events => {
-            this.props.searchHandler(events)
-            // console.log(events)
+            this.props.searchHandler(events['_embedded']['events'])
         })
     }
     
@@ -34,9 +33,9 @@ class Search extends React.Component {
         return (
             <div className="searchForm" onSubmit={this.submitHandler}>
                 <form className="eventSearch">
-                <input type="text" name="keyword" placeholder="Find an event ..." value={this.state.keyword} onChange={this.changeHandler}/>
-                <input type="text" name="city" placeholder="What city?" value={this.state.city} onChange={this.changeHandler}/>
-                <button type="submit"> Search </button>
+                    <input type="text" name="keyword" placeholder="Find an event ..." value={this.state.keyword} onChange={this.changeHandler}/>
+                    <input type="text" name="city" placeholder="What city?" value={this.state.city} onChange={this.changeHandler}/>
+                    <button type="submit"> Search </button>
                 </form>
             </div>
         )
