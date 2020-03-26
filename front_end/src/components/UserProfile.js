@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Search from './Search'
 import EventCard from './EventCard'
 
@@ -10,9 +9,24 @@ export default class UserProfile extends React.Component{
         copyEvents: []
     }
 
+    componentDidMount() {
+        fetch("http://localhost:3000/search_events", {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify({})
+        })
+        .then(resp => resp.json())
+        .then(events => {
+            this.searchHandler(events)
+        })
+    }
+
     searchHandler = events => {
         this.setState({
-            allEvents: events["_embedded"]["events"]
+            allEvents: events["_embedded"]["events"].reverse()
         })
     }
 
