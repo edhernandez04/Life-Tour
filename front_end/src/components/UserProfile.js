@@ -16,10 +16,13 @@ export default class UserProfile extends React.Component{
                 "Content-Type": 'application/json',
                 "Accept": 'application/json'
             },
-            body: JSON.stringify({})
+            body: JSON.stringify({
+                city: "new york"
+            })
         })
         .then(resp => resp.json())
         .then(events => {
+            console.log(events)
             this.searchHandler(events)
         })
     }
