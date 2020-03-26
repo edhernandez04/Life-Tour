@@ -5,7 +5,7 @@ class Event extends React.Component {
         return(
             <div>
                 <div className="event-card-image">
-                    <img src={this.props.event.images[2]}/>
+                    <img src={this.props.event.images.url}/>
                 </div>
                 <div className="event-card-details">
                     <h4>{this.props.event.name}</h4>

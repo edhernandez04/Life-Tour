@@ -25,7 +25,7 @@ class Search extends React.Component {
         })
         .then(resp => resp.json())
         .then(events => {
-            this.props.searchHandler(events._embedded.events)
+            this.props.searchHandler(events['_embedded']['events'])
         })
     }
     
