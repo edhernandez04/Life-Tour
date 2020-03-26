@@ -1,7 +1,7 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import Search from './Search'
-import Event from './Event'
+import EventCard from './EventCard'
 
 export default class UserProfile extends React.Component{
 
@@ -12,7 +12,7 @@ export default class UserProfile extends React.Component{
 
     searchHandler = events => {
         this.setState({
-            allEvents: events
+            allEvents: events["_embedded"]["events"]
         })
     }
 
@@ -21,8 +21,8 @@ export default class UserProfile extends React.Component{
     }
 
     render(){
-        console.log(this.state.allEvents)
-        return !this.props.currentUser ? <div>DOM LOADING...</div> : (
+        console.log(this.props.currentUser)
+        return !this.props.currentUser ? <Redirect to="/login" /> : (
             <div className="page">
                 <div className="row">
                     <div className="card-userAvatar">
@@ -39,15 +39,18 @@ export default class UserProfile extends React.Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="container-otherEvents">
-                        {this.state.allEvents.map(event => <Event key={event.id} event={event}/>)}
+                    <div className="wrapper-2">
+                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <Link to={{ pathname: '/event', state: { event: event} }} ><EventCard event={event}/></Link>)}
                     </div>
                     <div className="card-userInfo">
-                        <h2>{this.props.currentUser.username}</h2>
+                        <h2 align="center">{this.props.currentUser.username}</h2>
                         <p>{this.props.currentUser.name ? this.props.currentUser.name:"Didnt leave a name"}</p>
                         <p>{this.props.currentUser.age ? this.props.currentUser.age:"How old are you?"}</p>
                         <p>{this.props.currentUser.summary ? this.props.currentUser.summary:"You need to update your profile"}</p>
-                        <button onClick={this.editProfile}>Edit Profile</button><button onClick={this.createEvent}>Create Event</button><button onClick={this.startTour}>Start Tour</button>
+                        <button onClick={this.editProfile}>Edit Profile</button>
+                        <button onClick={this.tourMates}>TourMates</button>
+                        <button onClick={this.createEvent}>Create Event</button>
+                        <button onClick={this.createTour}>Start Tour</button>
                     </div>
                 </div>
             </div>
