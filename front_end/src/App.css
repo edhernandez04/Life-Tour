@@ -171,6 +171,7 @@
   width: 175px;
   padding: 1px;
   border-radius: 8px;
+  box-shadow: 4px 4px 5px grey;
 }
 
 .container-otherEvents {
@@ -364,7 +365,7 @@
   /* ACTUAL EVENT CARD */
 
   .event-card {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
     padding: 8px;
     height: auto + 20px;
@@ -377,6 +378,7 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
+    box-shadow: 8px 8px 5px grey;
   }
 
   .wrapper-2 {

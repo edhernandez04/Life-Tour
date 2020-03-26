@@ -37,7 +37,6 @@ export default class UserProfile extends React.Component{
     }
 
     render(){
-        console.log(this.state.allTours)
         return !this.props.currentUser ? <div>LOADING...</div> : (
             <div className="page">
                 <div className="row">
