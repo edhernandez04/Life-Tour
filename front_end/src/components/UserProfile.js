@@ -1,6 +1,7 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import Search from './Search'
+import EventCard from './EventCard'
 // import Event from './Event'
 
 export default class UserProfile extends React.Component{
@@ -12,7 +13,7 @@ export default class UserProfile extends React.Component{
 
     searchHandler = events => {
         this.setState({
-            allEvents: events
+            allEvents: events["_embedded"]["events"]
         })
     }
 
@@ -25,7 +26,7 @@ export default class UserProfile extends React.Component{
     }
 
     render(){
-        console.log(this.props)
+        console.log(this.props.currentUser)
         return !this.props.currentUser ? <Redirect to="/login" /> : (
             <div className="page">
                 <div className="row">
@@ -45,7 +46,7 @@ export default class UserProfile extends React.Component{
                 </div>
                 <div className="row">
                     <div className="container-otherEvents">
-                        <img src="https://fcclainc.org/sites/default/files/star-events.jpg" />
+                        {/* <img src="https://fcclainc.org/sites/default/files/star-events.jpg" />
                         <img src="https://www.visitbritain.com/sites/default/files/styles/vbmc_content_page/public/vbmc_consumer/main_images/vb34168897.jpg?itok=BIR_JBsL" />
                         <img src="https://specials-images.forbesimg.com/imageserve/1146473379/960x0.jpg?fit=scale" />
                         <img src="https://orbis.imgix.net/https%3A%2F%2Fs3-eu-west-1.amazonaws.com%2Fgb.files.orbis.epevaluation.co.uk%2Fimages%2FFundraising%2FOrbis-0014-P5-0428.JPG%3Fmtime%3D20181105155413?auto=compress&crop=focalpoint&fit=crop&fp-x=0&fp-y=0.5&h=660&ixlib=php-1.1.0&q=75&w=768&s=10d7fb4579ac0bb76125263be5d5a016" />
@@ -56,7 +57,8 @@ export default class UserProfile extends React.Component{
                         <img src="https://assets3.thrillist.com/v1/image/2679747/size/tmg-article_default_mobile.jpg" />
                         <img src="https://media.cntraveler.com/photos/5851cb6b053d277e273da5ab/master/w_2048,h_1536,c_limit/best-bars-NYC-Maison-Premiere-2016.jpg" />
                         <img src="https://thenypost.files.wordpress.com/2019/06/outdoor-rooftop-crown-bowery-1a.jpg?quality=80&strip=all&w=978&h=652" />
-                        <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2019%2F07%2Fbest-bubble-tea-nyc-01.jpg?q=75&w=800&cbr=1&fit=max" />
+                        <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2019%2F07%2Fbest-bubble-tea-nyc-01.jpg?q=75&w=800&cbr=1&fit=max" /> */}
+                        {this.state.allEvents.map(event => <Link to={{ pathname: '/event', state: { event: event} }} ><EventCard event={event}/></Link>)}
                     </div>
                     <div className="card-userInfo">
                         <h2>{this.props.currentUser.username}</h2>

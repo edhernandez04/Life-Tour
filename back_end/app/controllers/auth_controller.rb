@@ -11,15 +11,15 @@ class AuthController < ApplicationController
         end
       end
     
-      def auto_login
-    
-        if session_user
-          render json: session_user
-        else 
-          render json: {errors: "No such user"}
-        end
-        
+    def auto_login
+  
+      if session_user
+        render json: session_user
+      else 
+        render json: {errors: "No such user"}
       end
+      
+    end
   
   end
   
