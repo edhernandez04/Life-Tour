@@ -24,4 +24,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.find(params[:id])
+    user.update(user_params) 
+
+    render json: user
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:username, :name, :age, :summary, :profile_pic)
+  end
+
 end
