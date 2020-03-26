@@ -41,7 +41,7 @@ class EditProfile extends React.Component{
                 <form className="actualForm" onSubmit={this.handleSubmit}>
                     <h1>Edit Profile</h1>
                     <div className="txtbox">
-                        <input onChange={this.handleChange} type="text" name="name" placeholder="Name" />
+                        <input onChange={this.handleChange} type="text" name="name" placeholder="Name"  />
                     </div>
                     <div className="txtbox">
                         <input onChange={this.handleChange} type="integer" name="age" placeholder="Age" />

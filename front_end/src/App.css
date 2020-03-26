@@ -33,8 +33,6 @@
   display: flex;
   height: 90vh;
   overflow: hidden;
-  background-image: url("./assets/people-at-concert-1105666.jpg");
-  background-size: cover;
 }
 
 /* Login/SignUp Styling */
@@ -163,7 +161,7 @@
   overflow-y: auto;
   display: grid;
   grid-template-columns: 180px 180px 180px 180px 180px;
-  grid-auto-rows: minmax(120px, auto);
+  grid-auto-rows: auto;
   row-gap: 10px;
   column-gap: 10px;
 }
