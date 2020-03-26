@@ -8,6 +8,7 @@ const EventCard = props => {
                 <p>{props.event.name}</p>
                 <p>{props.event._embedded['venues'][0]['name']}</p>
                 <p>{props.event.dates["start"]["localDate"]}</p>
+                <button onClick={console.log(props.event)}>Add to Tour</button>
             </div>
     )
 }

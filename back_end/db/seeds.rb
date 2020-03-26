@@ -8,6 +8,6 @@
 
 User.destroy_all
 
-50.times do 
-    User.create!(name: Faker::Name.name,age: rand(15..45) ,summary: Faker::TvShows::FamilyGuy.quote)
+10.times do 
+    User.create!(username: Faker::Creature::Animal.name, name: Faker::Name.name,age: rand(15..45) ,summary: Faker::TvShows::FamilyGuy.quote, password: "123", profile_pic: "" )
 end
