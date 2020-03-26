@@ -22,7 +22,7 @@ export default class UserProfile extends React.Component{
 
     render(){
         console.log(this.props.currentUser)
-        return !this.props.currentUser ? <Redirect to="/login" /> : (
+        return !this.props.currentUser ? <div>LOADING... (You Shouldnt See this)</div> : (
             <div className="page">
                 <div className="row">
                     <div className="card-userAvatar">

@@ -139,6 +139,7 @@
 .card-userInfo {
   position: absolute;
   width: 200px;
+  height: 300px;
   padding: 20px;
   margin-top: 240px;
   margin-left: 50px;
