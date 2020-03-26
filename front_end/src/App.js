@@ -50,6 +50,14 @@ class App extends React.Component {
     })
   }
 
+  setEditUser = response => {
+    this.setState({
+      currentUser: response
+    }, () => {
+      this.props.history.push(`/profile`)
+    })
+  }
+
   logout = () => {
     this.setState({
       currentUser: null
@@ -67,7 +75,7 @@ class App extends React.Component {
           <Route exact path="/profile" render={() => <UserProfile currentUser={this.state.currentUser}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
-          <Route exact path="/editprofile" render={() => <EditProfile currentUser={this.state.currentUser}/>}/>
+          <Route exact path="/editprofile" render={(props) => <EditProfile {...props} setEditUser={this.setEditUser} currentUser={this.state.currentUser}/>}/>
           <Route exact path="/tour" render={() => <Tour currentUser={this.state.currentUser}/>}/>
           <Route exact path="/" component={Home} />
       </div>

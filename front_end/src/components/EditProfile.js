@@ -29,7 +29,10 @@ class EditProfile extends React.Component{
                 summary: this.state.summary,
                 profile_pic: this.state.profile_pic
             })
-        }).then(this.props.history.push(`/login`))
+        }).then(resp => resp.json())
+            .then(user => {
+                this.props.setEditUser(user)
+            })
       }
 
     render(){
