@@ -3,7 +3,6 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home'
-import Profile from './components/UserProfile'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
@@ -49,7 +48,6 @@ class App extends React.Component {
       localStorage.token = response.token
       this.props.history.push(`/profile`)
     })
-    // other /users and /users/:username
   }
 
   logout = () => {
@@ -62,12 +60,8 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(localStorage.token)
-    console.log(this.state.currentUser)
-
     return (
       <div className="App">
-        
           <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
           <Route exact path="/event" render={() => <Event />}/>
           <Route exact path="/profile" render={() => <UserProfile currentUser={this.state.currentUser}/>} />
@@ -76,7 +70,6 @@ class App extends React.Component {
           <Route exact path="/editprofile" render={() => <EditProfile currentUser={this.state.currentUser}/>}/>
           <Route exact path="/tour" render={() => <Tour currentUser={this.state.currentUser}/>}/>
           <Route exact path="/" component={Home} />
-        
       </div>
     );
   }

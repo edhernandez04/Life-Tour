@@ -1,8 +1,7 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Search from './Search'
 import EventCard from './EventCard'
-// import Event from './Event'
 
 export default class UserProfile extends React.Component{
 
@@ -40,15 +39,18 @@ export default class UserProfile extends React.Component{
                     </div>
                 </div>
                 <div className="row">
-                    <div className="container-otherEvents">
-                        {this.state.allEvents.map(event => <Link to={{ pathname: '/eventPage', state: { event: event} }} ><EventCard event={event}/></Link>)}
+                    <div className="wrapper-2">
+                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <EventCard event={event}/>)}
                     </div>
                     <div className="card-userInfo">
-                        <h2>{this.props.currentUser.username}</h2>
+                        <h2 align="center">{this.props.currentUser.username}</h2>
                         <p>{this.props.currentUser.name ? this.props.currentUser.name:"Didnt leave a name"}</p>
                         <p>{this.props.currentUser.age ? this.props.currentUser.age:"How old are you?"}</p>
                         <p>{this.props.currentUser.summary ? this.props.currentUser.summary:"You need to update your profile"}</p>
-                        <button onClick={this.editProfile}>Edit Profile</button><button onClick={this.createEvent}>Create Event</button><button onClick={this.startTour}>Start Tour</button>
+                        <button onClick={this.editProfile}>Edit Profile</button>
+                        <button onClick={this.tourMates}>TourMates</button>
+                        <button onClick={this.createEvent}>Create Event</button>
+                        <button onClick={this.createTour}>Start Tour</button>
                     </div>
                 </div>
             </div>

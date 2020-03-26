@@ -10,7 +10,7 @@ class Adapter
  # Constants, do not change these
  API_HOST = "https://app.ticketmaster.com"
  EVENTS_PATH = "/discovery/v2/events.json"
- SIZE = 10
+ SIZE = 15
 
   def self.search_events(keyword, city)
       url = "#{API_HOST}#{EVENTS_PATH}"

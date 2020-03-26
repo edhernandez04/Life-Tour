@@ -139,13 +139,12 @@
 .card-userInfo {
   position: absolute;
   width: 200px;
-  padding: 11px;
+  padding: 20px;
   margin-top: 240px;
   margin-left: 50px;
   margin-right: 0px;
   background-color: rgb(180, 204, 248);
   border-radius: 15px;
-  text-align: center;
 }
 
 .container-userEvents {
@@ -353,3 +352,39 @@
     height: 175px;
     border-radius: 15px;
   }
+
+  /* ACTUAL EVENT CARD */
+
+  .event-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 8px;
+    height: 300px;
+  }
+
+  .event-card img{
+    width: 175px;
+    height: 125px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .wrapper-2 {
+    position: absolute;
+    width: 1060px;
+    min-height: 500px;
+    margin-top: 215px;
+    margin-left: 300px;
+    margin-right: 50px;
+    background-color: rgb(180, 204, 248);
+    border-radius: 15px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-auto-rows: minmax(300px, auto);
+    row-gap: 10px;
+    column-gap: 10px;
+  }
+
