@@ -1,5 +1,4 @@
 import React from 'react'
-import { Redirect, Link } from 'react-router-dom'
 import Search from './Search'
 import EventCard from './EventCard'
 import TourCard from './TourCard'
@@ -12,21 +11,34 @@ export default class UserProfile extends React.Component{
         allTours: [],
     }
 
-    searchHandler = events => {
-        this.setState({
-            allEvents: events["_embedded"]["events"]
+    componentDidMount() {
+        fetch("http://localhost:3000/search_events", {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify({})
         })
+        .then(resp => resp.json())
+        .then(events => {
+            this.searchHandler(events)
+        }).then(
+            fetch("http://localhost:3000/tours")
+            .then(resp => resp.json())
+            .then(allTours => { this.setState({allTours}) })
+        )
     }
 
-    componentDidMount() {
-        fetch("http://localhost:3000/tours")
-        .then(resp => resp.json())
-        .then(allTours => { this.setState({allTours}) })
+    searchHandler = events => {
+        this.setState({
+            allEvents: events["_embedded"]["events"].reverse()
+        })
     }
 
     render(){
         console.log(this.state.allTours)
-        return !this.props.currentUser ? <div>LOADING... (You Shouldnt See this)</div> : (
+        return !this.props.currentUser ? <div>LOADING...</div> : (
             <div className="page">
                 <div className="row">
                     <div className="card-userAvatar">
@@ -41,7 +53,7 @@ export default class UserProfile extends React.Component{
                 </div>
                 <div className="row">
                     <div className="wrapper-2">
-                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <Link to={{ pathname: '/event', state: { event: event} }} ><EventCard event={event}/></Link>)}
+                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <EventCard event={event}/>)}
                     </div>
                     <div className="card-userInfo">
                         <h2 align="center">{this.props.currentUser.username}</h2>

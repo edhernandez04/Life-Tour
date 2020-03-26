@@ -10,16 +10,19 @@ class Adapter
  # Constants, do not change these
  API_HOST = "https://app.ticketmaster.com"
  EVENTS_PATH = "/discovery/v2/events.json"
- SIZE = 10
+ SORT = "date,asc"
+ SIZE = 12
+ 
 
-  def self.search_events(keyword, city)
+  def self.search_events(keyword, city="new york", country)
       url = "#{API_HOST}#{EVENTS_PATH}"
 
       params = {
         apikey: API_KEY,
         keyword: keyword,
         city: city,
-        size: SIZE
+        size: SIZE,
+        sort: SORT
       }
 
       response = HTTP.get("#{url}", params: params)
