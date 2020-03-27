@@ -10,7 +10,13 @@ const EventCard = props => {
                 <a href={props.event.url} target="_blank"><p>{props.event.name}</p></a>
                 <p>{props.event._embedded['venues'][0]['name']}</p>
                 <p>{props.event.dates["start"]["localDate"]}</p>
-                <button onClick={() => console.log(props.event)}>Add to Tour</button>
+                <select onChange={props.selectHandler}>
+                    <option value="null">None</option>
+                    {props.tours.map(tour => {
+                        return <option value={tour.id}>{tour.title}</option>
+                    })}
+                </select>
+                <button onClick={() => props.addTourHandler(props.event)}>Add to Tour</button>
             </div>
     )
 }

@@ -9,6 +9,7 @@ export default class UserProfile extends React.Component{
         allEvents: [],
         copyEvents: [],
         allTours: [],
+        selectedTour: null
     }
 
     componentDidMount() {
@@ -39,6 +40,28 @@ export default class UserProfile extends React.Component{
         })
     }
 
+    selectHandler = event => {
+        this.setState({
+            selectedTour: parseInt(event.target.value)
+        })
+    }
+
+    addTourHandler = (event) => {
+        fetch("http://localhost:3000/events", {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify({
+                tour_id: this.state.selectedTour,
+                event: event
+            })
+        })
+        .then(resp => resp.json())
+        .then(console.log)
+    }
+
     render(){
         return !this.props.currentUser ? <div>LOADING...</div> : (
             <div className="page">
@@ -55,7 +78,7 @@ export default class UserProfile extends React.Component{
                 </div>
                 <div className="row">
                     <div className="wrapper-2">
-                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <EventCard event={event}/>)}
+                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <EventCard key={event.id} event={event} selectHandler={this.selectHandler} tours={this.state.allTours} addTourHandler={this.addTourHandler} />)}
                     </div>
                     <div className="card-userInfo">
                         <h2 align="center">{this.props.currentUser.username}</h2>

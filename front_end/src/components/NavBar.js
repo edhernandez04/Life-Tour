@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 class NavBar extends React.Component {
 
@@ -16,7 +16,10 @@ class NavBar extends React.Component {
                 <NavLink to="/">Home</NavLink>
                 {this.props.currentUser ? 
                 <span className="user">
-                    Welcome! {this.props.currentUser.username}
+                    Welcome!
+                    <Link to="/profile">
+                    {this.props.currentUser.username}
+                    </Link>
                     <button onClick={this.props.logout}> Log Out </button>
                 </span>
                 : 
