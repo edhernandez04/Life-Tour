@@ -8,13 +8,14 @@ import SignUp from './pages/SignUp';
 import UserProfile from './components/UserProfile';
 import Event from './components/EventPage';
 import EditProfile from './components/EditProfile';
-import Tour from './components/TourPage'
+import TourPage from './components/TourPage'
 import CreateTour from './components/CreateTour'
 
 class App extends React.Component {
 
   state = {
-    currentUser: null
+    currentUser: null,
+    selectedTour: null
   }
   
   componentDidMount(){
@@ -68,17 +69,25 @@ class App extends React.Component {
     })
   }
 
+  selectedTour = (tour) => {
+    this.setState({
+      selectedTour: tour
+    }, () => {
+      this.props.history.push('/tour')
+    })
+  }
+
   render() {
     return (
       <div className="App">
           <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
           <Route exact path="/starttour" render={(props) => <CreateTour {...props} currentUser={this.state.currentUser}/>}/>
           <Route exact path="/event" render={() => <Event />}/>
-          <Route exact path="/profile" render={(props) => <UserProfile {...props} currentUser={this.state.currentUser}/>} />
+          <Route exact path="/profile" render={(props) => <UserProfile {...props} currentUser={this.state.currentUser} selectedTour={this.selectedTour}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
           <Route exact path="/editprofile" render={(props) => <EditProfile {...props} setEditUser={this.setEditUser} currentUser={this.state.currentUser}/>}/>
-          <Route exact path="/tour" render={() => <Tour currentUser={this.state.currentUser}/>}/>
+          <Route exact path="/tour" render={() => <TourPage tour={this.state.selectedTour} currentUser={this.state.currentUser}/>} />
           <Route exact path="/" component={Home} />
       </div>
     );

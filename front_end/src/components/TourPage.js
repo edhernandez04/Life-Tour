@@ -1,50 +1,59 @@
 import React from 'react'
 
-class Tour extends React.Component{
+class TourPage extends React.Component{
+
+    state = {
+        tourEvents: []
+    }
+
+    componentDidMount() {
+        fetch(`http://localhost:3000/tours/${this.props.tour.id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .then(events => {
+            this.setState({
+                tourEvents: events
+            })
+        })
+    }
+
     render(){
         return(
             <div>
                 <div className="tour-avatar">
-                    <h2>Pardi Hardi Tour</h2>
-                    <img src='https://www.visitbritain.com/sites/default/files/styles/vbmc_content_page/public/vbmc_consumer/main_images/vb34168897.jpg?itok=BIR_JBsL'/>
+                    <h2>{this.props.tour.title}</h2>
+                    <img src={this.props.tour.tour_pic}/>
                 </div>
                 <div className="tour-details">
                     <p>Grand Marshall</p>
-                    <p>Total Attendees</p>
                     <p>Start Date - End Date</p>
-                    <p>Total number of Events</p>
+                    <p>{this.state.tourEvents.count}</p>
                     <p>Tour stops</p>
                     <p>The Bronx</p>
                 </div>
                 <div className="wrapper">
-                    <div className="tour-event-card">
-                        <img src="https://thenypost.files.wordpress.com/2019/06/outdoor-rooftop-crown-bowery-1a.jpg?quality=80&strip=all&w=978&h=652"/>
-                        <p>Manhattan Rooftop Pardi</p>
-                        <p>6:00pm - 9:00pm</p>
-                        <p>24 attendees</p>
-                    </div>
-                    <div className="tour-event-card">
-                        <img src="https://thenypost.files.wordpress.com/2019/06/outdoor-rooftop-crown-bowery-1a.jpg?quality=80&strip=all&w=978&h=652"/>
-                        <p>Manhattan Rooftop Pardi</p>
-                        <p>6:00pm - 9:00pm</p>
-                        <p>24 attendees</p>
-                    </div>
-                    <div className="tour-event-card">
-                        <img src="https://thenypost.files.wordpress.com/2019/06/outdoor-rooftop-crown-bowery-1a.jpg?quality=80&strip=all&w=978&h=652"/>
-                        <p>Manhattan Rooftop Pardi</p>
-                        <p>6:00pm - 9:00pm</p>
-                        <p>24 attendees</p>
-                    </div>
-                    <div className="tour-event-card">
-                        <img src="https://thenypost.files.wordpress.com/2019/06/outdoor-rooftop-crown-bowery-1a.jpg?quality=80&strip=all&w=978&h=652"/>
-                        <p>Manhattan Rooftop Pardi</p>
-                        <p>6:00pm - 9:00pm</p>
-                        <p>24 attendees</p>
-                    </div>
+
+                    {this.state.tourEvents.map(event => {
+                    return <div className="tour-event-card">
+                                <img src="https://thenypost.files.wordpress.com/2019/06/outdoor-rooftop-crown-bowery-1a.jpg?quality=80&strip=all&w=978&h=652"/>
+                                <p>{event.name}</p>
+                                <p>{event.date}</p>
+                                <p>{event.location}</p>
+
+                            </div>
+                    })}
+
                 </div>
             </div>
         )
     }
 }
 
-export default Tour
+export default TourPage

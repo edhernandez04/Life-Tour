@@ -1,5 +1,7 @@
 class Tour < ApplicationRecord
-    has_many :events, through: :listed_event
-    has_many :users, through: :user_attending
+    has_many :listed_events
+    has_many :events, through: :listed_events
+    has_many :user_attendings
+    has_many :users, through: :user_attendings
     belongs_to :user
 end

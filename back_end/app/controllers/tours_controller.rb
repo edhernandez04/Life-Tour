@@ -21,8 +21,13 @@ class ToursController < ApplicationController
   
     def show
       tour = Tour.all.find do |tour|
-        tour.id === params[:id]
+        tour.id === params[:id].to_i
       end
+
+      tour_events = tour.events
+
+      render json: tour_events
+
     end
   
     def update
