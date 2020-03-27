@@ -80,7 +80,7 @@ export default class UserProfile extends React.Component{
                 </div>
                 <div className="row">
                     <div className="wrapper-2">
-                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <EventCard key={event.id} event={event} selectHandler={this.selectHandler} tours={this.state.allTours} addTourHandler={this.addTourHandler} />)}
+                        {this.state.allEvents === [] ? "need somthing" : this.state.allEvents.map(event => <EventCard key={event.id} event={event} selectHandler={this.selectHandler} tours={this.state.allTours.filter(tour => tour.user_id === this.props.currentUser.id)} addTourHandler={this.addTourHandler} />)}
                     </div>
                     <div className="card-userInfo">
                         <h2 align="center">{this.props.currentUser.username}</h2>
