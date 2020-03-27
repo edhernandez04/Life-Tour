@@ -11,7 +11,7 @@ class Tour extends React.Component{
                     <img src={this.props.tour.tour_pic}/>
                 </div>
                 <div className="tour-details">
-                    <p>HOST:</p>
+                    <h3>HOST: {this.props.tour.user_id}</h3>
                     <p>{this.props.tour.summary}</p>
                 </div>
                 <div className="wrapper">
