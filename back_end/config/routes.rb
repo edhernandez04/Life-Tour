@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   get '/tours', to: 'tours#index'
   post '/tours', to: 'tours#create'
+
+  post '/events', to: 'events#create'
+
   # patch '/tours/:id', to: 'tours#update'
   # delete '/tours/:id', to: 'tours#destory'
 

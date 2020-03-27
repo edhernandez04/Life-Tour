@@ -27,7 +27,7 @@ class SignUp extends React.Component {
         body: JSON.stringify({
           username: this.state.username,
           password: this.state.password,
-          age: this.state.age
+          age: parseInt(this.state.age)
         })
       })
       .then(resp => resp.json())
