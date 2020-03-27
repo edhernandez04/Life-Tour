@@ -62,6 +62,8 @@ export default class UserProfile extends React.Component{
         .then(console.log)
     }
 
+
+
     render(){
         return !this.props.currentUser ? <div>LOADING...</div> : (
             <div className="page">
@@ -70,7 +72,7 @@ export default class UserProfile extends React.Component{
                         <img src={this.props.currentUser.profile_pic ? this.props.currentUser.profile_pic : "https://i7.pngguru.com/preview/178/419/741/computer-icons-avatar-login-user-avatar.jpg"} />
                     </div> 
                     <div className="container-userEvents">
-                        {this.state.allTours.filter(tour => tour.user_id === this.props.currentUser.id).map(tour => <TourCard key={tour.id} tour={tour} handleTourClick={this.props.handleTourClick}/>)}
+                        {this.state.allTours.filter(tour => tour.user_id === this.props.currentUser.id).map(tour => <TourCard selectedTour={this.props.selectedTour} key={tour.id} tour={tour}/>)}
                     </div>
                     <div className="search">
                         <Search searchHandler={this.searchHandler}/>

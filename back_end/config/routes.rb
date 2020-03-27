@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/tours', to: 'tours#index'
   post '/tours', to: 'tours#create'
+  post '/tours/:id', to: 'tours#show'
 
   post '/events', to: 'events#create'
 

@@ -69,9 +69,12 @@ class App extends React.Component {
     })
   }
 
-  handleTourClick = (tour) => {
-    this.setState({selectedTour: tour})
-    this.props.history.push('/tour')
+  selectedTour = (tour) => {
+    this.setState({
+      selectedTour: tour
+    }, () => {
+      this.props.history.push('/tour')
+    })
   }
 
   render() {
@@ -80,11 +83,11 @@ class App extends React.Component {
           <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
           <Route exact path="/starttour" render={(props) => <CreateTour {...props} currentUser={this.state.currentUser} handleTourClick={this.handleTourClick}/>}/>
           <Route exact path="/event" render={() => <Event />}/>
-          <Route exact path="/profile" render={(props) => <UserProfile {...props} currentUser={this.state.currentUser} handleTourClick={this.handleTourClick}/>}/>
+          <Route exact path="/profile" render={(props) => <UserProfile {...props} currentUser={this.state.currentUser} selectedTour={this.selectedTour}/>} />
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />
           <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
           <Route exact path="/editprofile" render={(props) => <EditProfile {...props} setEditUser={this.setEditUser} currentUser={this.state.currentUser}/>}/>
-          <Route exact path="/tour" render={(props) => <TourPage {...props} currentUser={this.state.currentUser} tour={this.state.selectedTour}/>}/>
+          <Route exact path="/tour" render={() => <TourPage tour={this.state.selectedTour} currentUser={this.state.currentUser}/>} />
           <Route exact path="/" component={Home} />
       </div>
     );

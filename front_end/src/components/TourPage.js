@@ -1,7 +1,29 @@
 import React from 'react'
 import Event from './EventCard'
 
-class Tour extends React.Component{
+class TourPage extends React.Component{
+
+    state = {
+        tourEvents: []
+    }
+
+    componentDidMount() {
+        fetch(`http://localhost:3000/tours/${this.props.tour.id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Accept": 'application/json'
+            },
+            body: JSON.stringify({
+            })
+        })
+        .then(resp => resp.json())
+        .then(events => {
+            this.setState({
+                tourEvents: events
+            })
+        })
+    }
 
     render(){
         return(
@@ -11,15 +33,29 @@ class Tour extends React.Component{
                     <img src={this.props.tour.tour_pic}/>
                 </div>
                 <div className="tour-details">
-                    <h3>HOST: {this.props.tour.user_id}</h3>
-                    <p>{this.props.tour.summary}</p>
+                    <p>Grand Marshall</p>
+                    <p>Start Date - End Date</p>
+                    <p>{this.state.tourEvents.count}</p>
+                    <p>Tour stops</p>
+                    <p>The Bronx</p>
                 </div>
                 <div className="wrapper">
-                    {/* {this.props.allEvents.filter(event => event.tour_id === this.props.tour.id).map(event => <Event key={event.id} event={event}/>)} */}
+
+                    {this.state.tourEvents.map(event => {
+                        console.log(event)
+                    return <div className="tour-event-card">
+                                <img src={event.image}/>
+                                <p>{event.name}</p>
+                                <p>{event.date}</p>
+                                <p>{event.location}</p>
+
+                            </div>
+                    })}
+
                 </div>
             </div>
         )
     }
 }
 
-export default Tour
+export default TourPage

@@ -322,44 +322,36 @@
 
   .wrapper {
     position: absolute;
-    width: 950px;
-    min-height: 750px;
+    width: 1020px;
+    height: auto;
     margin-top: 10px;
-    margin-left: 400px;
+    margin-left: 370px;
     margin-right: 50px;
     background-color: rgb(180, 204, 248);
     border-radius: 15px;
-    padding: 10px;
+    padding: 38px;
     display: grid;
-    grid-template-columns: 290px 290px 290px;
+    grid-template-columns: 225px 225px 225px 225px;
     grid-auto-rows: minmax(300px, auto);
     row-gap: 10px;
-    column-gap: 25px;
+    column-gap: 10px;
   }
 
   .tour-event-card {
-    width: 295px;
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
-    background-color:rgb(253, 255, 128);
-    padding: 5px;
-    text-align:center;
-  }
-
-  .tour-event-card p {
-    background-color: white;
-    border-radius: 15px;
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 25px;
-    padding: 3px;
+    padding: 10px;
+    height: auto;
   }
 
   .tour-event-card img{
-    width: 250px;
-    height: 175px;
+    width: 175px;
+    height: 125px;
     border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: 8px 8px 5px grey;
   }
 
   /* ACTUAL EVENT CARD */

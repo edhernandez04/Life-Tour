@@ -32,7 +32,7 @@ class CreateTour extends React.Component{
         })
         .then(resp => resp.json())
             .then(tour => {
-                this.props.history.push(`/tour`)
+                this.props.history.push(`/profile`)
             })
       }
 
