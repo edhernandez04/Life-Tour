@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_182520) do
   create_table "tours", force: :cascade do |t|
     t.string "title"
     t.string "summary"
-    t.integer "user_id"
     t.string "tour_pic"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
