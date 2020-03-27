@@ -78,7 +78,7 @@ class App extends React.Component {
     return (
       <div className="App">
           <NavBar logout={this.logout} currentUser={this.state.currentUser}/>
-          <Route exact path="/starttour" render={(props) => <CreateTour {...props} currentUser={this.state.currentUser}/>}/>
+          <Route exact path="/starttour" render={(props) => <CreateTour {...props} currentUser={this.state.currentUser} handleTourClick={this.handleTourClick}/>}/>
           <Route exact path="/event" render={() => <Event />}/>
           <Route exact path="/profile" render={(props) => <UserProfile {...props} currentUser={this.state.currentUser} handleTourClick={this.handleTourClick}/>}/>
           <Route exact path="/login" render={() => <Login setUser={this.setUser}/>} />

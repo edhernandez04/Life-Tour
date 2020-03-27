@@ -32,8 +32,7 @@ class CreateTour extends React.Component{
         })
         .then(resp => resp.json())
             .then(tour => {
-                console.log(tour)
-                this.props.history.push(`/tour/${tour.id}`)
+                this.props.history.push(`/tour`)
             })
       }
 
@@ -51,7 +50,7 @@ class CreateTour extends React.Component{
                     <div className="txtbox">
                         <input onChange={this.handleChange} type="text" name="summary" placeholder="Summary" />
                     </div>
-                    <button type="submit" value="Login"> Start Tour </button>
+                    <button type="submit" value="Login" onClick={() => this.handleTourClick(this.state)}> Start Tour </button>
                 </form>
             <div className="fullscreen-video-wrap">
                 <video src="https://cdn.videvo.net/videvo_files/video/free/2020-03/small_watermarked/200207_London%20Streets_1_4k_082_preview.webm" autoPlay={true} loop={true}></video>
