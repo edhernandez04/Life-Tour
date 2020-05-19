@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 * {
   box-sizing: border-box;
@@ -15,7 +15,13 @@
 }
 
 .navheader {
+  font-family: "Montserrat", sans-serif;
   padding-left: 20px;
+}
+
+.navheader h1 {
+  margin-bottom: 0px;
+  font-weight: 800;
 }
 
 .navlinks {
@@ -47,7 +53,7 @@
   z-index: -1;
 }
 
-.fullscreen-video-wrap video{
+.fullscreen-video-wrap video {
   min-width: 100%;
   min-height: 100%;
 }
@@ -102,18 +108,18 @@
   background: linear-gradient(120deg, #de6161, #2657eb);
   font-size: 15px;
   color: #fff;
-  cursor: pointer;    
+  cursor: pointer;
   outline: none;
   transition: 0.5s;
   border-radius: 15px;
 }
 
 .actualForm button:hover {
-  background-position: right;  
+  background-position: right;
 }
 
 /* PROFILE PAGE  */
-.card-userAvatar{
+.card-userAvatar {
   position: absolute;
   margin-top: 25px;
   margin-left: 50px;
@@ -125,7 +131,7 @@
 }
 
 .card-userAvatar img {
-  height: 150px; 
+  height: 150px;
   width: 150px;
   border-radius: 100px;
   margin-top: 12%;
@@ -166,7 +172,7 @@
   column-gap: 10px;
 }
 
-.container-userEvents img{
+.container-userEvents img {
   height: 118px;
   width: 175px;
   padding: 1px;
@@ -207,7 +213,7 @@
   width: 950px;
   border-radius: 15px;
   height: 175px;
-  background-color: rgb(180, 204, 248);;
+  background-color: rgb(180, 204, 248);
 }
 
 .event-banner img {
@@ -250,7 +256,7 @@
   border-radius: 100px;
 }
 
-.comment-form{
+.comment-form {
   position: absolute;
   margin-top: 595px;
   margin-left: 400px;
@@ -268,125 +274,124 @@
 }
 
 .event-host-avatar {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 50px;
-    width: 300px;
-    height: 300px;
-    background-color: rgb(180, 204, 248);
-    border-radius: 15px;
-    text-align:center;
-  }
-  
-  .event-host-avatar img {
-    height: 150px; 
-    width: 150px;
-    border-radius: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  text-align: center;
+}
 
-  /* TOUR PAGE */
+.event-host-avatar img {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 
-  .tour-avatar {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 50px;
-    width: 300px;
-    height: 300px;
-    background-color: rgb(180, 204, 248);
-    border-radius: 15px;
-    text-align:center;
-  }
+/* TOUR PAGE */
 
-  .tour-avatar img{
-    height: 200px; 
-    width: 200px;
-    border-radius: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  }
+.tour-avatar {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 300px;
+  height: 300px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  text-align: center;
+}
 
-  .tour-details {
-    padding: 10px;
-    position: absolute;
-    width: 300px;
-    margin-top: 325px;
-    margin-left: 50px;
-    background-color: rgb(180, 204, 248);
-    border-radius: 15px;
-    text-align:center;
-  }
+.tour-avatar img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 
-  .wrapper {
-    position: absolute;
-    width: 1020px;
-    height: auto;
-    margin-top: 10px;
-    margin-left: 370px;
-    margin-right: 50px;
-    background-color: rgb(180, 204, 248);
-    border-radius: 15px;
-    padding: 38px;
-    display: grid;
-    grid-template-columns: 225px 225px 225px 225px;
-    grid-auto-rows: minmax(300px, auto);
-    row-gap: 10px;
-    column-gap: 10px;
-  }
+.tour-details {
+  padding: 10px;
+  position: absolute;
+  width: 300px;
+  margin-top: 325px;
+  margin-left: 50px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  text-align: center;
+}
 
-  .tour-event-card {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    padding: 10px;
-    height: auto;
-  }
+.wrapper {
+  position: absolute;
+  width: 1020px;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 370px;
+  margin-right: 50px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  padding: 38px;
+  display: grid;
+  grid-template-columns: 225px 225px 225px 225px;
+  grid-auto-rows: minmax(300px, auto);
+  row-gap: 10px;
+  column-gap: 10px;
+}
 
-  .tour-event-card img{
-    width: 175px;
-    height: 125px;
-    border-radius: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    box-shadow: 8px 8px 5px grey;
-  }
+.tour-event-card {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 10px;
+  height: auto;
+}
 
-  /* ACTUAL EVENT CARD */
+.tour-event-card img {
+  width: 175px;
+  height: 125px;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  box-shadow: 8px 8px 5px grey;
+}
 
-  .event-card {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    padding: 8px;
-    height: auto + 20px;
-  }
+/* ACTUAL EVENT CARD */
 
-  .event-card img{
-    width: 175px;
-    height: 125px;
-    border-radius: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    box-shadow: 8px 8px 5px grey;
-  }
+.event-card {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 8px;
+  height: auto + 20px;
+}
 
-  .wrapper-2 {
-    position: absolute;
-    width: 1060px;
-    min-height: 500px;
-    margin-top: 215px;
-    margin-left: 300px;
-    margin-right: 50px;
-    background-color: rgb(180, 204, 248);
-    border-radius: 15px;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: 250px 250px 250px 250px;
-    grid-auto-rows: minmax(300px, auto);
-    row-gap: 10px;
-    column-gap: 10px;
-  }
+.event-card img {
+  width: 175px;
+  height: 125px;
+  border-radius: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  box-shadow: 8px 8px 5px grey;
+}
 
+.wrapper-2 {
+  position: absolute;
+  width: 1060px;
+  min-height: 500px;
+  margin-top: 215px;
+  margin-left: 300px;
+  margin-right: 50px;
+  background-color: rgb(180, 204, 248);
+  border-radius: 15px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-auto-rows: minmax(300px, auto);
+  row-gap: 10px;
+  column-gap: 10px;
+}
